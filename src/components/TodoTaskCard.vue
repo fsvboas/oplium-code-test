@@ -22,7 +22,7 @@ const isTaskCompleted = ref<boolean>(false)
           isTaskCompleted ? 'line-through text-neutral-400' : 'text-black',
         ]"
       >
-        Tarefa 1
+        Tarefa Teste
       </p>
     </div>
 
