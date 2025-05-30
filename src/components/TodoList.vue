@@ -21,7 +21,7 @@ const filteredTasks = computed(() => filterMap[activeFilter.value]?.(todoList.va
 </script>
 
 <template>
-  <div class="w-full space-y-1 h-100 overflow-y-auto pr-0 flex justify-center">
+  <div class="w-full space-y-1 h-100 overflow-y-auto pr-0 flex flex-col">
     <EmptyTodoListState v-if="!filteredTasks.length" />
     <TodoTaskCard v-for="task in filteredTasks" :key="task.id" :task="task" />
   </div>
