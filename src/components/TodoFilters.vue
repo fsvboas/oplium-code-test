@@ -21,6 +21,7 @@ const isMobileDevice = computed(() => width.value <= 640)
   <div class="flex w-full space-x-2">
     <n-button-group class="bg-white rounded max-sm:w-full" :vertical="isMobileDevice">
       <n-button
+        :tabindex="0"
         @click="activeFilter = 'all'"
         :focusable="false"
         :bordered="false"
@@ -35,6 +36,7 @@ const isMobileDevice = computed(() => width.value <= 640)
         Todas
       </n-button>
       <n-button
+        :tabindex="0"
         @click="activeFilter = 'pending'"
         :focusable="false"
         :bordered="false"
@@ -49,6 +51,7 @@ const isMobileDevice = computed(() => width.value <= 640)
         Pendentes
       </n-button>
       <n-button
+        :tabindex="0"
         @click="activeFilter = 'completed'"
         :focusable="false"
         :bordered="false"
