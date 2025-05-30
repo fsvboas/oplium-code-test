@@ -25,7 +25,7 @@ const handleUpdateTaskStatus = (id: string) => {
 <template>
   <div
     :class="[
-      'flex justify-between items-center w-full p-2 rounded',
+      'flex justify-between items-center w-full p-2 rounded max-h-fit',
       isTaskCompleted ? 'bg-neutral-100' : ' bg-white',
     ]"
   >
