@@ -14,7 +14,7 @@ const isTaskCompleted = ref<boolean>(false)
     ]"
   >
     <div class="flex items-center space-x-2">
-      <n-checkbox v-model:checked="isTaskCompleted" />
+      <n-checkbox v-model:checked="isTaskCompleted" size="large" />
 
       <p
         :class="[
