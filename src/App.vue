@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import { Check } from 'lucide-vue-next'
-import { NButton } from 'naive-ui'
+import TodoInput from './components/TodoInput.vue'
 </script>
 <template>
-  <div class="min-h-screen bg-black/90 flex justify-center items-center">
-    <div class="flex items-center space-x-2">
-      <h1 class="text-white text-2xl">Hello World</h1>
-      <Check color="lime" :size="32" />
-      <n-button type="primary">Button</n-button>
+  <div class="min-h-screen bg-neutral-50 flex justify-center items-center">
+    <div
+      class="flex items-center space-x-2 bg-neutral-200 max-w-3xl w-full justify-center p-4 md:p-12 rounded-md border"
+    >
+      <TodoInput />
     </div>
   </div>
 </template>
