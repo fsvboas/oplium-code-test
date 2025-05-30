@@ -23,7 +23,7 @@ const isSubmitFormDisabled = computed(() => inputValue.value.trim() === '')
       v-model:value="inputValue"
       type="text"
       placeholder="Adicione uma tarefa"
-      class="w-full"
+      class="w-full dark:!bg-neutral-800 dark:[--n-text-color:white!important] dark:[--n-border:none!important]"
     />
     <n-button
       attr-type="submit"

@@ -27,8 +27,7 @@ const handleUpdateTaskStatus = (id: string) => {
 <template>
   <div
     :class="[
-      'flex justify-between items-center w-full p-2 rounded max-h-fit ',
-      isTaskCompleted ? 'bg-neutral-100' : ' bg-white',
+      'flex justify-between items-center w-full p-2 rounded max-h-fit bg-white dark:bg-neutral-800 dark:border dark:border-neutral-700',
     ]"
   >
     <div class="flex items-center space-x-2">
@@ -36,11 +35,12 @@ const handleUpdateTaskStatus = (id: string) => {
         v-model:checked="isTaskCompleted"
         size="large"
         @update:checked="handleUpdateTaskStatus(task.id)"
+        class="[--n-color:transparent!important]"
       />
       <p
         :class="[
           'transition-colors duration-200 line-clamp-2',
-          isTaskCompleted ? 'line-through text-neutral-400' : 'text-black',
+          isTaskCompleted ? 'line-through text-neutral-400' : 'text-black dark:text-white',
         ]"
       >
         {{ task.name }}
@@ -50,7 +50,7 @@ const handleUpdateTaskStatus = (id: string) => {
     <n-button
       quaternary
       type="error"
-      class="hover:!bg-red-100"
+      class="hover:!bg-red-200"
       @click="handleDeleteTask(task.id)"
       :loading="pending.delete"
       :focusable="false"
