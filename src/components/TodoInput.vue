@@ -22,7 +22,7 @@ const isSubmitFormDisabled = computed(() => inputValue.value.trim() === '')
     <n-input
       v-model:value="inputValue"
       type="text"
-      placeholder="Adicione uma nova tarefa"
+      placeholder="Adicione uma tarefa"
       class="w-full"
     />
     <n-button

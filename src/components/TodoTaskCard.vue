@@ -27,7 +27,7 @@ const handleUpdateTaskStatus = (id: string) => {
 <template>
   <div
     :class="[
-      'flex justify-between items-center w-full p-2 rounded max-h-fit',
+      'flex justify-between items-center w-full p-2 rounded max-h-fit ',
       isTaskCompleted ? 'bg-neutral-100' : ' bg-white',
     ]"
   >
@@ -39,7 +39,7 @@ const handleUpdateTaskStatus = (id: string) => {
       />
       <p
         :class="[
-          'transition-colors duration-200',
+          'transition-colors duration-200 line-clamp-2',
           isTaskCompleted ? 'line-through text-neutral-400' : 'text-black',
         ]"
       >
