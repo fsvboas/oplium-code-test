@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import { NInput, NButton } from 'naive-ui'
 import { ref, computed } from 'vue'
+import { useTodoListStore } from '../stores/useTodoListStore.ts'
 
 const inputValue = ref<string>('')
+const todoListStore = useTodoListStore()
 
 const handleSubmit = () => {
-  console.log('inputValue', inputValue.value)
+  if (!inputValue.value.trim()) return
+  todoListStore.addTask(inputValue.value)
   inputValue.value = ''
 }
 

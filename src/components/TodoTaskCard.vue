@@ -2,6 +2,11 @@
 import { NCheckbox, NButton, NIcon } from 'naive-ui'
 import { Trash } from 'lucide-vue-next'
 import { ref } from 'vue'
+import type { TaskType } from '@/types/taskType'
+
+defineProps<{
+  task: TaskType
+}>()
 
 const isTaskCompleted = ref<boolean>(false)
 </script>
@@ -22,7 +27,7 @@ const isTaskCompleted = ref<boolean>(false)
           isTaskCompleted ? 'line-through text-neutral-400' : 'text-black',
         ]"
       >
-        Tarefa Teste
+        {{ task.name }}
       </p>
     </div>
 
