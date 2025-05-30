@@ -1,14 +1,15 @@
 import type { TaskType } from '@/types/taskType'
 import { defineStore } from 'pinia'
+import { v4 as uuidv4 } from 'uuid'
 import { ref, watch } from 'vue'
 
 export const useTodoListStore = defineStore('todoList', () => {
   const storedTasks = localStorage.getItem('todoList')
   const todoList = ref<TaskType[]>(storedTasks ? JSON.parse(storedTasks) : [])
-  const id = ref(0)
 
   const addTask = (name: string) => {
-    todoList.value.push({ name, id: id.value++, status: 'pending' })
+    const randomId = uuidv4()
+    todoList.value.push({ name, id: randomId, status: 'pending' })
   }
 
   watch(
@@ -21,7 +22,6 @@ export const useTodoListStore = defineStore('todoList', () => {
 
   return {
     todoList,
-    id,
     addTask,
   }
 })
