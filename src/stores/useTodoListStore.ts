@@ -12,6 +12,10 @@ export const useTodoListStore = defineStore('todoList', () => {
     todoList.value.push({ name, id: randomId, status: 'pending' })
   }
 
+  const deleteTask = (id: string) => {
+    todoList.value = todoList.value.filter((task) => task.id !== id)
+  }
+
   watch(
     todoList,
     (newTasks) => {
@@ -23,5 +27,6 @@ export const useTodoListStore = defineStore('todoList', () => {
   return {
     todoList,
     addTask,
+    deleteTask,
   }
 })

@@ -3,12 +3,18 @@ import { NCheckbox, NButton, NIcon } from 'naive-ui'
 import { Trash } from 'lucide-vue-next'
 import { ref } from 'vue'
 import type { TaskType } from '@/types/taskType'
+import { useTodoListStore } from '../stores/useTodoListStore.ts'
 
 defineProps<{
   task: TaskType
 }>()
 
 const isTaskCompleted = ref<boolean>(false)
+const todoListStore = useTodoListStore()
+
+const handleDeleteTask = (id: string) => {
+  todoListStore.deleteTask(id)
+}
 </script>
 
 <template>
@@ -31,7 +37,7 @@ const isTaskCompleted = ref<boolean>(false)
       </p>
     </div>
 
-    <n-button quaternary type="error" class="hover:!bg-red-100">
+    <n-button quaternary type="error" class="hover:!bg-red-100" @click="handleDeleteTask(task.id)">
       <template #icon>
         <n-icon>
           <Trash />
