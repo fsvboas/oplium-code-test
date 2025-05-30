@@ -4,7 +4,7 @@ import { List, Hourglass, Check } from 'lucide-vue-next'
 import { ref, onMounted, computed } from 'vue'
 
 const activeFilter = ref<'all' | 'pending' | 'completed'>('all')
-const width = ref(window.innerWidth)
+const width = ref<number>(window.innerWidth)
 
 const updateWidth = () => {
   width.value = window.innerWidth
@@ -14,12 +14,12 @@ onMounted(() => {
   window.addEventListener('resize', updateWidth)
 })
 
-const isMobile = computed(() => width.value <= 640)
+const isMobileDevice = computed(() => width.value <= 640)
 </script>
 
 <template>
   <div class="flex w-full space-x-2">
-    <n-button-group class="bg-white rounded max-sm:w-full" :vertical="isMobile">
+    <n-button-group class="bg-white rounded max-sm:w-full" :vertical="isMobileDevice">
       <n-button
         @click="activeFilter = 'all'"
         :focusable="false"
