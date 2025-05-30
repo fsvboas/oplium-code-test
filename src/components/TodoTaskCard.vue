@@ -4,12 +4,14 @@ import { Trash } from 'lucide-vue-next'
 import type { TaskType } from '@/types/taskType'
 import { useTodoListStore } from '../stores/useTodoListStore.ts'
 import { computed } from 'vue'
+import { storeToRefs } from 'pinia'
 
 const props = defineProps<{
   task: TaskType
 }>()
 
 const todoListStore = useTodoListStore()
+const { pending } = storeToRefs(todoListStore)
 
 const isTaskCompleted = computed(() => props.task.status === 'completed')
 
@@ -45,7 +47,14 @@ const handleUpdateTaskStatus = (id: string) => {
       </p>
     </div>
 
-    <n-button quaternary type="error" class="hover:!bg-red-100" @click="handleDeleteTask(task.id)">
+    <n-button
+      quaternary
+      type="error"
+      class="hover:!bg-red-100"
+      @click="handleDeleteTask(task.id)"
+      :loading="pending.delete"
+      :focusable="false"
+    >
       <template #icon>
         <n-icon>
           <Trash />
