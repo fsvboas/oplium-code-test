@@ -2,8 +2,14 @@
 import { NButtonGroup, NButton, NIcon } from 'naive-ui'
 import { List, Hourglass, Check } from 'lucide-vue-next'
 import { ref, onMounted, computed } from 'vue'
+import { useTodoListFilterStore } from '../stores/useTodoListFilterStore.ts'
+import { storeToRefs } from 'pinia'
 
-const activeFilter = ref<'all' | 'pending' | 'completed'>('all')
+const filterStore = useTodoListFilterStore()
+
+const { setFilter } = filterStore
+const { activeFilter } = storeToRefs(filterStore)
+
 const width = ref<number>(window.innerWidth)
 
 const updateWidth = () => {
@@ -22,7 +28,7 @@ const isMobileDevice = computed(() => width.value <= 640)
     <n-button-group class="bg-white rounded max-sm:w-full" :vertical="isMobileDevice">
       <n-button
         :tabindex="0"
-        @click="activeFilter = 'all'"
+        @click="setFilter('all')"
         :focusable="false"
         :bordered="false"
         :class="[
@@ -37,7 +43,7 @@ const isMobileDevice = computed(() => width.value <= 640)
       </n-button>
       <n-button
         :tabindex="0"
-        @click="activeFilter = 'pending'"
+        @click="setFilter('pending')"
         :focusable="false"
         :bordered="false"
         :class="[
@@ -52,7 +58,7 @@ const isMobileDevice = computed(() => width.value <= 640)
       </n-button>
       <n-button
         :tabindex="0"
-        @click="activeFilter = 'completed'"
+        @click="setFilter('completed')"
         :focusable="false"
         :bordered="false"
         :class="[
