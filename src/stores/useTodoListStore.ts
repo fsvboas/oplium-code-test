@@ -16,6 +16,13 @@ export const useTodoListStore = defineStore('todoList', () => {
     todoList.value = todoList.value.filter((task) => task.id !== id)
   }
 
+  const updateTask = (id: string) => {
+    const task = todoList.value.find((task) => task.id === id)
+    if (!task) return
+    const newStatus = task.status === 'pending' ? 'completed' : 'pending'
+    task.status = newStatus
+  }
+
   watch(
     todoList,
     (newTasks) => {
@@ -28,5 +35,6 @@ export const useTodoListStore = defineStore('todoList', () => {
     todoList,
     addTask,
     deleteTask,
+    updateTask,
   }
 })

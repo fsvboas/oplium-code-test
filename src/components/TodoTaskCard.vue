@@ -1,19 +1,24 @@
 <script setup lang="ts">
 import { NCheckbox, NButton, NIcon } from 'naive-ui'
 import { Trash } from 'lucide-vue-next'
-import { ref } from 'vue'
 import type { TaskType } from '@/types/taskType'
 import { useTodoListStore } from '../stores/useTodoListStore.ts'
+import { computed } from 'vue'
 
-defineProps<{
+const props = defineProps<{
   task: TaskType
 }>()
 
-const isTaskCompleted = ref<boolean>(false)
 const todoListStore = useTodoListStore()
+
+const isTaskCompleted = computed(() => props.task.status === 'completed')
 
 const handleDeleteTask = (id: string) => {
   todoListStore.deleteTask(id)
+}
+
+const handleUpdateTaskStatus = (id: string) => {
+  todoListStore.updateTask(id)
 }
 </script>
 
@@ -25,8 +30,11 @@ const handleDeleteTask = (id: string) => {
     ]"
   >
     <div class="flex items-center space-x-2">
-      <n-checkbox v-model:checked="isTaskCompleted" size="large" />
-
+      <n-checkbox
+        v-model:checked="isTaskCompleted"
+        size="large"
+        @update:checked="handleUpdateTaskStatus(task.id)"
+      />
       <p
         :class="[
           'transition-colors duration-200',
