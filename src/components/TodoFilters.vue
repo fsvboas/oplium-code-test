@@ -25,15 +25,20 @@ const isMobileDevice = computed(() => width.value <= 640)
 
 <template>
   <div class="flex w-full space-x-2">
-    <n-button-group class="bg-white rounded max-sm:w-full" :vertical="isMobileDevice">
+    <n-button-group
+      class="bg-white dark:bg-neutral-800 rounded max-sm:w-full"
+      :vertical="isMobileDevice"
+    >
       <n-button
         :tabindex="0"
         @click="setFilter('all')"
         :focusable="false"
         :bordered="false"
         :class="[
-          '[--n-ripple-color:black!important] [--n-text-color-hover:black!important] [--n-text-color-pressed:black!important] [--n-text-color-focus:black!important] !border !border-[#e0e0e6] hover:!border-black',
-          activeFilter === 'all' ? '!border-black !text-black' : '',
+          '[--n-ripple-color:black!important] [--n-text-color-hover:black!important] [--n-text-color-pressed:black!important] [--n-text-color-focus:black!important] !border !border-[#e0e0e6] hover:!border-black dark:[--n-ripple-color:white!important] dark:[--n-text-color-hover:white!important] dark:[--n-text-color-pressed:white!important] dark:[--n-text-color-focus:white!important]  dark:hover:!border-white dark:hover:!text-white',
+          activeFilter === 'all'
+            ? '!border-black !text-black dark:!border-white dark:!text-white'
+            : 'dark:!text-neutral-400 dark:!border-neutral-600',
         ]"
       >
         <template #icon>
@@ -47,8 +52,10 @@ const isMobileDevice = computed(() => width.value <= 640)
         :focusable="false"
         :bordered="false"
         :class="[
-          '[--n-ripple-color:#ff6900!important] [--n-text-color-hover:#ff6900!important] [--n-text-color-pressed:#ff6900!important] [--n-text-color-focus:#ff6900!important] !border !border-[#e0e0e6] hover:!border-orange-500',
-          activeFilter === 'pending' ? '!border-orange-500 !text-orange-500' : '',
+          '[--n-ripple-color:#ff6900!important] [--n-text-color-pressed:#ff6900!important] [--n-text-color-focus:#ff6900!important] !border !border-[#e0e0e6] hover:!border-orange-600  hover:!text-orange-600',
+          activeFilter === 'pending'
+            ? '!border-orange-600 !text-orange-600 dark:!border-orange-600 dark:!text-orange-600'
+            : 'dark:!text-neutral-400 dark:!border-neutral-600',
         ]"
       >
         <template #icon>
@@ -62,8 +69,10 @@ const isMobileDevice = computed(() => width.value <= 640)
         :focusable="false"
         :bordered="false"
         :class="[
-          '!border !border-[#e0e0e6]',
-          activeFilter === 'completed' ? '!border-green-600 !text-green-600' : '',
+          '[--n-ripple-color:#22c55e!important] [--n-text-color-pressed:#22c55e!important] [--n-text-color-focus:#22c55e!important] !border !border-[#e0e0e6] hover:!border-green-600  hover:!text-green-600',
+          activeFilter === 'completed'
+            ? '!border-green-500 !text-green-500 dark:!border-green-500 dark:!text-green-500'
+            : 'dark:!text-neutral-400 dark:!border-neutral-600',
         ]"
       >
         <template #icon>
