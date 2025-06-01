@@ -25,10 +25,8 @@ const handleUpdateTaskStatus = (id: string) => {
 </script>
 
 <template>
-  <div
-    :class="[
-      'flex justify-between items-center w-full p-2 rounded max-h-fit bg-white dark:bg-neutral-800 dark:border dark:border-neutral-700',
-    ]"
+  <li
+    class="flex justify-between items-center w-full p-2 rounded max-h-fit bg-white dark:bg-neutral-800 dark:border dark:border-neutral-700"
   >
     <div class="flex items-center space-x-2">
       <n-checkbox
@@ -61,5 +59,5 @@ const handleUpdateTaskStatus = (id: string) => {
         </n-icon>
       </template>
     </n-button>
-  </div>
+  </li>
 </template>
