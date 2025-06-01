@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import TodoTaskCard from './TodoTaskCard.vue'
+import TodoItem from './TodoItem.vue'
 import EmptyTodoListState from '../components/EmptyTodoListState.vue'
 import { useTodoListStore } from '../stores/useTodoListStore.ts'
 import { useTodoListFilterStore } from '../stores/useTodoListFilterStore.ts'
@@ -36,7 +36,7 @@ const filteredTasks = computed(() => filterMap[activeFilter.value]?.(todoList.va
       translate-x-0"
       leave-to-class="opacity-0 translate-x-8"
     >
-      <TodoTaskCard v-for="task in filteredTasks" :key="task.id" :task="task" />
+      <TodoItem v-for="task in filteredTasks" :key="task.id" :task="task" />
     </TransitionGroup>
   </div>
 </template>
