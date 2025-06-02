@@ -17,7 +17,7 @@ const filterMap = {
   pending: () => todoList.value.filter((task) => task.status === 'pending'),
   completed: () => todoList.value.filter((task) => task.status === 'completed'),
 }
-const filteredTasks = computed(() => filterMap[activeFilter.value]?.(todoList.value) ?? [])
+const filteredTasks = computed(() => filterMap[activeFilter.value]?.() ?? [])
 </script>
 
 <template>
