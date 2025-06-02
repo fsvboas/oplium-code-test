@@ -2,8 +2,6 @@
     Oplium Code Test - To-Do List
 </h1>
 
-<img src="public/preview.png">
-
 ## 🧾 Sobre
 
 Teste de código para vaga de desenvolvedor front-end na empresa Oplium Digital Security. O desafio consiste no desenvolvimento de uma To-Do List, onde o usuário deve poder cadastrar, visualizar, filtrar e excluir tarefas. A aplicação conta com alta responsividade, modo escuro, persistência local (via localStorage) e testes unitários para criação, remoção e filtragem.
