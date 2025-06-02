@@ -30,6 +30,7 @@ const handleUpdateTaskStatus = (id: string) => {
   >
     <div class="flex items-center space-x-2">
       <n-checkbox
+        data-testid="checkbox"
         v-model:checked="isTaskCompleted"
         size="large"
         @update:checked="handleUpdateTaskStatus(task.id)"
@@ -46,6 +47,7 @@ const handleUpdateTaskStatus = (id: string) => {
     </div>
 
     <n-button
+      data-testid="delete-task-button"
       quaternary
       type="error"
       class="hover:!bg-red-200"
