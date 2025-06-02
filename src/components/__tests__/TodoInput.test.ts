@@ -41,7 +41,7 @@ describe('TodoInput', () => {
     expect((button.element as HTMLButtonElement).disabled).toBe(false)
   })
 
-  it('should task is added after submit form', async () => {
+  it('should task be added after submit form', async () => {
     vi.useFakeTimers()
 
     await input.setValue('leite')
