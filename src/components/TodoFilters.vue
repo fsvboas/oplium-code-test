@@ -30,6 +30,7 @@ const isMobileDevice = computed(() => width.value <= 640)
       :vertical="isMobileDevice"
     >
       <n-button
+        data-testid="filter-button-all"
         :tabindex="0"
         @click="setFilter('all')"
         :focusable="false"
@@ -47,6 +48,7 @@ const isMobileDevice = computed(() => width.value <= 640)
         Todas
       </n-button>
       <n-button
+        data-testid="filter-button-pending"
         :tabindex="0"
         @click="setFilter('pending')"
         :focusable="false"
@@ -64,6 +66,7 @@ const isMobileDevice = computed(() => width.value <= 640)
         Pendentes
       </n-button>
       <n-button
+        data-testid="filter-button-completed"
         :tabindex="0"
         @click="setFilter('completed')"
         :focusable="false"

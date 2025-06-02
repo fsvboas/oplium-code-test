@@ -8,6 +8,7 @@ const toggleTheme = useToggle(isDark)
 
 <template>
   <n-button
+    data-testid="switch-theme-button"
     quaternary
     :focusable="false"
     class="!dark:text-white cursor-pointer !absolute right-4 top-4"
