@@ -1,45 +1,63 @@
-# oplium-code-test
+<h1>
+    Oplium Code Test - To-Do List
+</h1>
 
-This template should help get you started developing with Vue 3 in Vite.
+<img src="public/preview.png">
 
-## Recommended IDE Setup
+## 🧾 Sobre
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Teste de código para vaga de desenvolvedor front-end na empresa Oplium Digital Security. O desafio consiste no desenvolvimento de uma To-Do List, onde o usuário deve poder cadastrar, visualizar, filtrar e excluir tarefas. A aplicação conta com alta responsividade, modo escuro, persistência local (via localStorage) e testes unitários para criação, remoção e filtragem.
 
-## Type Support for `.vue` Imports in TS
+## 💻 Tecnologias utilizadas
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- Vue.js 3 (Composition API)
+- Tailwind CSS
+- TypeScript
+- Naive UI
+- Pinia
+- VueUse
+- Lucide
+- Vitest
+- Vue Test Utils
 
-## Customize configuration
+## 🛠️ Como utilizar
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+Instale as dependências do projeto:
 
-## Project Setup
-
-```sh
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+Inicie o projeto:
 
-```sh
+```bash
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+Por fim, abra [http://localhost:5173](http://localhost:5173) no seu navegador.
 
-```sh
-npm run build
+## 🧪 Como realizar os testes unitários
+
+Confirme que as dependências do projeto estão instaladas:
+
+```bash
+npm install
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+Acesse os arquivos com a terminologia .test.ts contidos no seguinte diretório:
 
-```sh
+```bash
+src/components/__tests__/
+```
+
+Modifique os exemplos como desejar e execute o comando abaixo para testar um único componente:
+
+```bash
+npm run test:unit -- src/components/__tests__/NomeDoArquivo.test.ts
+```
+
+Se preferir, você também pode executar todos os testes simultaneamente:
+
+```bash
 npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```
